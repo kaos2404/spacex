@@ -24,7 +24,10 @@
             <div class="card-body">
               <h5 class="card-title accent-clr">{{ i.title }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">
-                Time: {{ i.event_date_utc | date: 'MM/dd/yyyy, HH:mm' }}
+                <span *ngIf="i.event_date_utc"
+                  >Time: {{ i.event_date_utc | date: 'MM/dd/yyyy, HH:mm' }}</span
+                >
+                <span *ngIf="i.flight_number">Flight number: {{ i.flight_number }} </span>
               </h6>
               <p class="card-text">{{ i.details }}</p>
               <a *ngIf="i.links.reddit" [href]="i.links.reddit" class="card-link">

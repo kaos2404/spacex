@@ -25,3 +25,8 @@
     width: 10rem !important;
   }
 }
+.card-subtitle {
+  span + span {
+    margin-left: 0.5rem;
+  }
+}
