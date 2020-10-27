@@ -1,0 +1,76 @@
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3.5rem;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 2;
+  &.down {
+    top: calc(100% - 3.5rem);
+  }
+  .nav,
+  .home,
+  .mobile {
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    mat-icon {
+      font-size: 2rem;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .home.active {
+    cursor: initial;
+  }
+  .nav {
+    margin-left: auto;
+  }
+  .mobile {
+    margin-left: auto;
+    cursor: unset;
+  }
+  .breadcrumb {
+    .nav-link {
+      display: flex;
+      align-items: center;
+      mat-icon {
+        height: 2rem;
+        width: 2rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+.content {
+  position: absolute;
+  top: 3.5rem;
+  left: 4rem;
+  width: calc(100vw - 4rem);
+  height: calc(100% - 3.5rem);
+  .route-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+  &.down {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    left: 0;
+    width: 100vw;
+  }
+}

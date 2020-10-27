@@ -1,0 +1,59 @@
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  .table-container {
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    .table {
+      th,
+      td {
+        padding: 0.75rem;
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+      }
+      .payload {
+        width: 15%;
+      }
+      .customers {
+        width: 15%;
+      }
+      .nationality {
+        width: 10%;
+      }
+      .manufacturer {
+        width: 10%;
+      }
+      .payload-type {
+        width: 15%;
+      }
+      .orbit {
+        width: 10%;
+      }
+      .time {
+        width: 15%;
+      }
+    }
+  }
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .filter {
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .filter {
+    width: 10rem !important;
+  }
+  th,
+  td {
+    font-size: 0.75rem;
+  }
+}

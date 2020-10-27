@@ -1,0 +1,39 @@
+<app-navbar
+  (close)="closeNavBar($event)"
+  [state]="sideNav"
+  [bannerDown]="bannerDown"
+></app-navbar>
+<div
+  class="banner banner-bg"
+  (panup)="bannerDown = false"
+  (pandown)="bannerDown = true"
+  [ngClass]="{ down: bannerDown }"
+>
+  <button
+    class="home nav-link"
+    matRipple
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <mat-icon class="nav-icon-clr">home</mat-icon>
+  </button>
+  <div class="spinner-border accent-clr ml-3" *ngIf="interceptor.spinner | async">
+    <span class="sr-only"></span>
+  </div>
+  <div class="breadcrumb mobile-only" *ngIf="breadcrumbIcon">
+    <div class="nav-link active">
+      <mat-icon class="menu-icon-clr">keyboard_arrow_right</mat-icon>
+      <mat-icon class="nav-icon-clr">{{ breadcrumbIcon }}</mat-icon>
+    </div>
+  </div>
+  <button matRipple class="nav mobile-only" (click)="toggleNavBar($event)">
+    <mat-icon class="menu-icon-clr">menu</mat-icon>
+  </button>
+</div>
+
+<div class="content" [ngClass]="{ down: bannerDown }">
+  <div class="route-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

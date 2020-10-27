@@ -1,0 +1,37 @@
+<div
+  class="nav-bar nav-bar-bg"
+  [ngClass]="{ open: state, down: bannerDown }"
+  appClickOutside
+  (clickOutside)="onClickedOutside($event)"
+>
+  <button
+    matRipple
+    class="nav-link"
+    (click)="onLinkClicked($event)"
+    routerLink="/home/launches"
+    routerLinkActive="active"
+  >
+    <i class="fas fa-rocket nav-icon nav-icon-clr"></i>
+  </button>
+  <button
+    matRipple
+    class="nav-link"
+    (click)="onLinkClicked($event)"
+    routerLink="/home/news"
+    routerLinkActive="active"
+  >
+    <i class="fas fa-newspaper nav-icon nav-icon-clr"></i>
+  </button>
+
+  <a class="nav-link" href="https://github.com/kaos2404/spacex" target="_blank">
+    <mat-icon class="nav-icon nav-icon-clr">code</mat-icon>
+  </a>
+  <button matRipple class="theme nav-link" (click)="theme.toggleTheme()">
+    <div *ngIf="!theme.dark">
+      <i class="fas fa-moon nav-icon nav-icon-clr"></i>
+    </div>
+    <div *ngIf="theme.dark">
+      <i class="fas fa-sun nav-icon nav-icon-clr"></i>
+    </div>
+  </button>
+</div>

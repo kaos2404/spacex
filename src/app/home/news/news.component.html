@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="card detail-bg">
+    <div class="card-header-tab card-header">
+      <h5>History</h5>
+      <div class="input-group mb-3 filter">
+        <input
+          matInput
+          [formControl]="filter"
+          autocomplete="off"
+          type="text"
+          class="form-control main-bg main-clr"
+          placeholder="Filter results"
+        />
+      </div>
+    </div>
+    <app-pagination
+      [list]="news | appTransform: filter.value:filterFunc"
+      [itemsPerPage]="4"
+      #paginate
+    >
+      <div class="grid">
+        <div class="item" *ngFor="let i of paginate.items">
+          <div class="card main-clr main-bg" style="height: 100%">
+            <div class="card-body">
+              <h5 class="card-title accent-clr">{{ i.title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Time: {{ i.event_date_utc | date: 'MM/dd/yyyy, HH:mm' }}
+              </h6>
+              <p class="card-text">{{ i.details }}</p>
+              <a *ngIf="i.links.reddit" [href]="i.links.reddit" class="card-link">
+                <i class="fab fa-reddit"></i>
+                Reddit
+              </a>
+              <a *ngIf="i.links.article" [href]="i.links.article" class="card-link">
+                <i class="fas fa-rocket"></i>
+                Article
+              </a>
+              <a *ngIf="i.links.wikipedia" [href]="i.links.wikipedia" class="card-link">
+                <i class="fab fa-wikipedia-w nav-icon-clr"></i>
+                Wiki
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-pagination>
+  </div>
+</div>

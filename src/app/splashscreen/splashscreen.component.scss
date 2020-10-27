@@ -1,0 +1,22 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .icon-container {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    background-color: #bdbdbd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 4px 8px #e0e0e0;
+    .icon {
+      height: 8rem;
+      width: 8rem;
+      color: #757575;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="card detail-bg">
+    <div class="card-header-tab card-header">
+      <h5 style="margin: none">Launches</h5>
+      <div class="input-group filter">
+        <input
+          matInput
+          [formControl]="filter"
+          autocomplete="off"
+          type="text"
+          class="form-control main-bg main-clr"
+          placeholder="Filter results"
+        />
+      </div>
+    </div>
+
+    <app-pagination
+      [list]="launches | appTableSort: sort | appTransform: filter.value:filterFunc"
+      [itemsPerPage]="5"
+      #paginate
+      ><div class="table-container">
+        <table class="table main-clr" matSort (matSortChange)="sort = $event">
+          <thead class="accent-clr">
+            <th mat-sort-header="payload_id" class="payload">Payload</th>
+            <th class="customers desktop-only">Customers</th>
+            <th mat-sort-header="nationality" class="nationality">Nationality</th>
+            <th mat-sort-header="manufacturer" class="manufacturer">Manufacturer</th>
+            <th mat-sort-header="payload_type" class="payload-type">Type</th>
+            <th mat-sort-header="orbit" class="orbit desktop-only">Orbit</th>
+            <th mat-sort-header="time" class="time">Time</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let launch of paginate.items">
+              <td class="payload">{{ launch.payload_id }}</td>
+              <td class="customers desktop-only">
+                <ul>
+                  <li *ngFor="let customer of launch.customers">{{ customer }}</li>
+                </ul>
+              </td>
+              <td class="nationality">{{ launch.nationality }}</td>
+              <td class="manufacturer">{{ launch.manufacturer }}</td>
+              <td class="payload-type">{{ launch.payload_type }}</td>
+              <td class="orbit desktop-only">{{ launch.orbit }}</td>
+              <td class="time">
+                {{ launch.orbit_params.epoch | date: 'MM/dd/yyyy, HH:mm' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-pagination>
+  </div>
+</div>
