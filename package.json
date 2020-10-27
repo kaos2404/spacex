@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href=https://kaos2404.github.io/spacex/",
-    "firebase": "ng build",
+    "build": "ng build --prod --base-href=https://kaos2404.github.io/spacex/",
+    "firebase": "ng build --prod && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
