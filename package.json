@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --base-href=https://kaos2404.github.io/spacex/",
+    "build-firebase": "ng build --prod",
     "firebase": "ng build --prod && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
